@@ -11,9 +11,10 @@
 
 var randArray = [];
 var homeArray = [];
+var pcArray = [];
 var numMax = 100;
 
-console.log(genNum(randArray, 100));
+pcArray = genNum(randArray, 100);
 var punteggio = numGame(randArray, homeArray, numMax);
 
 console.log("GAME OVER");
@@ -41,16 +42,19 @@ function randomNumber(min,max){
 
 function numGame(randArray, homeArray, numMax){
   while (homeArray.length < numMax - 16) {
-    var numeroUtente = parseInt(prompt("Inserisci un numero e vediamo quanto resisti: "));
 
+    var numeroUtente = parseInt(prompt("Inserisci un numero e vediamo quanto resisti: "));
     // se il numero è compreso tra 1 e 100 e non è una parola pusho il numero dentro homeArray
-  if (numeroUtente >= 1 && numeroUtente <= 100 && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
+
+    if (numeroUtente >= 1 && numeroUtente <= 100 && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
       if(!randArray.includes(numeroUtente)){
         homeArray.push(numeroUtente);
+        console.log("sono qui");
       } else {
         return homeArray.length;
       }
+    } else {
+      return homeArray.length;
     }
   }
-  return homeArray.length;
 }
