@@ -10,21 +10,28 @@
 //  cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 var randArray = [];
+console.log(genNum(randArray,100));
+
+
+
+
 
 
 
 // functions
-
 function genNum(array, max){
-  while (array.lenght < 16) {
+  // ciclo per contare fino a 16
+  while (array.length < 16) {
+    // variabile per generare un numero fino a 100
     var randNum = randomNumber(1, max);
+
+    // verifico che il numero non sia stato già generato
     if (!array.includes(randNum)) {
-      array.push(randNum)
+      array.push(randNum);
     }
   }
+  return array;
 }
-
-
 
 function randomNumber(min,max){
   return parseInt(Math.random() * (max - min) + min);
