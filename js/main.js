@@ -10,12 +10,14 @@
 //  cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 var randArray = [];
-console.log(genNum(randArray,100));
+var homeArray = [];
+var numMax = 100;
 
+console.log(genNum(randArray, 100));
+var punteggio = numGame(randArray, homeArray, numMax);
 
-
-
-
+console.log("GAME OVER");
+console.log("Il tuo punteggio è: " + punteggio);
 
 
 // functions
@@ -35,4 +37,20 @@ function genNum(array, max){
 
 function randomNumber(min,max){
   return parseInt(Math.random() * (max - min) + min);
+}
+
+function numGame(randArray, homeArray, numMax){
+  while (homeArray.length < numMax - 16) {
+    var numeroUtente = parseInt(prompt("Inserisci un numero e vediamo quanto resisti: "));
+
+    // se il numero è compreso tra 1 e 100 e non è una parola pusho il numero dentro homeArray
+    if (numeroUtente >= 1 && numeroUtente <= 100 && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
+      if(!randArray.includes(numeroUtente)){
+      homeArray.push(numeroUtente);
+    } else {
+      return homeArray.length;
+    }
+   }
+  }
+  return homeArray.length;
 }
