@@ -44,13 +44,13 @@ function numGame(randArray, homeArray, numMax){
     var numeroUtente = parseInt(prompt("Inserisci un numero e vediamo quanto resisti: "));
 
     // se il numero è compreso tra 1 e 100 e non è una parola pusho il numero dentro homeArray
-    if (numeroUtente >= 1 && numeroUtente <= 100 && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
+  if (numeroUtente >= 1 && numeroUtente <= 100 && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
       if(!randArray.includes(numeroUtente)){
-      homeArray.push(numeroUtente);
-    } else {
-      return homeArray.length;
+        homeArray.push(numeroUtente);
+      } else {
+        return homeArray.length;
+      }
     }
-   }
   }
   return homeArray.length;
 }
