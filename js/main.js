@@ -14,8 +14,29 @@ var homeArray = [];
 var pcArray = [];
 var numMax = 100;
 
-pcArray = genNum(randArray, 100);
+// l'utente sceglie la difficoltà
+var condizione = true;
+while (condizione) {
+  var sceltaUtente = prompt("scegli la difficolta: easy=1-100, medium=1-80, hard=1-50?");
+  switch (sceltaUtente) {
+    case "easy":
+    numMax = 100;
+    condizione = false;
+    break;
+    case "medium":
+    numMax = 80;
+    condizione = false;
+    break;
+    case "hard":
+    numMax = 50;
+    condizione = false;
+    break;
+  }
+}
+
+pcArray = genNum(randArray, numMax);
 var punteggio = numGame(randArray, homeArray, numMax);
+
 
 console.log("GAME OVER");
 console.log("Il tuo punteggio è: " + punteggio);
@@ -46,10 +67,9 @@ function numGame(randArray, homeArray, numMax){
     var numeroUtente = parseInt(prompt("Inserisci un numero e vediamo quanto resisti: "));
     // se il numero è compreso tra 1 e 100 e non è una parola pusho il numero dentro homeArray
 
-    if (numeroUtente >= 1 && numeroUtente <= 100 && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
+    if (numeroUtente >= 1 && numeroUtente <= numMax && !isNaN(numeroUtente) && !homeArray.includes(numeroUtente)) {
       if(!randArray.includes(numeroUtente)){
         homeArray.push(numeroUtente);
-        console.log("sono qui");
       } else {
         return homeArray.length;
       }
